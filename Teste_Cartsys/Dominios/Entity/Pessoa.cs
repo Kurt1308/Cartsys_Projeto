@@ -20,13 +20,15 @@ namespace Domain.Entity
         {
         }
         // Construtor para inicializar a entidade com os dados
-        public Pessoa(string nome, string cpf, string idade, string email, string estadoCivil, string Cargo, bool Situacao, string bairro)
+        public Pessoa(string nome, string cpf, string idade, string email, string estadoCivil, string cargo, bool situacao, string bairro)
         {
             Nome = nome;
             CPF = cpf;
             Idade = idade;
             Email = email;
             EstadoCivil = estadoCivil;
+            Cargo = cargo;
+            Situacao = situacao;
             Bairro = bairro;
         }
     }

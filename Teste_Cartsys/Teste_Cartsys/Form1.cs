@@ -105,7 +105,7 @@ namespace Teste_Cartsys
             int numeroRegistro = (int)Convert.ToInt64(num);
 
             bool validacao;
-            validacao = _validation.ValidaCampoNumerosInteiros(numeroRegistro);
+            validacao = _validation.ValidaCampoNumerosInteiros(num);
 
             if (validacao) { 
                 // Obter detalhes da pessoa usando o repositório
