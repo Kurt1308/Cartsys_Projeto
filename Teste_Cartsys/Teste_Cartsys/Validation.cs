@@ -9,6 +9,7 @@ namespace Teste_Cartsys
         private const string msgEstadoCivil = "Campo estado civil deve ser SOLTEIRO ou CASADO.";
         private const string msgValidaNumeroInteiro = "CAMPO DEVE CONTER APENAS NÚMEROS INTEIROS";
         private const string msgFormatoEmail = "EMAIL EM FORMATO NÃO ACEITO PELO SISTEMA.";
+        private const string msgFormatoCPF = "CPF EM FORMATO NÃO ACEITO PELO SISTEMA.";
         
         
         /// <summary>
@@ -21,9 +22,6 @@ namespace Teste_Cartsys
         {
             string id = pessoa.Idade;
             int idade = (int)Convert.ToInt64(id);
-
-            string cpf = pessoa.CPF;
-            int CPF = (int)Convert.ToInt64(cpf);
 
             if (!ValidaUsuarioEmBranco(pessoa.Nome))
                 return msgCampoNaoInformado + ": Preencher nome do usuário no cadastro.";
@@ -40,8 +38,8 @@ namespace Teste_Cartsys
             if (!ValidaCampoNumerosInteiros(idade))
                 return msgValidaNumeroInteiro + ": CAMPO IDADE. ";
 
-            if (!ValidaCampoNumerosInteiros(CPF))
-                return msgValidaNumeroInteiro + ": CAMPO CPF. ";
+            if (!ValidaCPF(pessoa.CPF))
+                return msgFormatoCPF + " FORMATO DEVE SER APENAS NÚMEROS INTEIROS NESSE PADRÃO - 111.111.111-11";
 
             if (!ValidaEmail(pessoa.Email))
                 return msgFormatoEmail;
@@ -77,6 +75,23 @@ namespace Teste_Cartsys
 
             return campo == "" ? false : campo.Length > 50 ? false : true;
         }
+        /// <summary>
+        /// Valida se campo cpf esta correto 
+        /// False = o campo não passou na validação
+        /// True = o campo passou na validação
+        /// </summary>
+        /// <param name="CPF">string </param>
+        /// <returns>bool</returns>
+        protected bool ValidaCPF(string campo)
+        {
+            Regex rg = new Regex(@"^\d{3}\.\d{3}\.\d{3}-\d{2}$");
+
+            if (!rg.IsMatch(campo))
+                return false;
+
+            return campo == "" ? false : campo.Length > 50 ? false : true;
+        }
+
         /// <summary>
         /// Valida tipo_usuario = User ou Admin
         /// False = o campo não passou na validação

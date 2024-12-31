@@ -77,28 +77,6 @@ namespace Teste_Cartsys
             this.limparDadosCadastro();
         }
 
-        // Limpar os campos após cadastro
-        private void limparDadosCadastro()
-        {
-            this.textBoxNome.Text = null;
-            this.textBoxCPF.Text = null;
-            this.textBoxIdade.Text = null;
-            this.textBoxEmail.Text = null;
-            this.textBoxEstadoCivil.Text = null;
-            this.textBoxBairro.Text = null;
-            this.textBoxCargo.Text = null;
-        }
-
-        private void limparDadosDetalhes()
-        {
-            this.textBoxNumRegistroDetalhes.Text = null;
-        }
-
-        private void limparDadosRegistro()
-        {
-            this.textBoxPesquisarNomeRegistro.Text = null;
-        }
-
         // Método para pesquisar pessoa pelo número de registro
         private void buttonPesquisarNumRegistro_Click(object sender, EventArgs e)
         {
@@ -152,6 +130,28 @@ namespace Teste_Cartsys
             {
                 MessageBox.Show("Campo informado deve conter apenas números inteiros!", "Erro", MessageBoxButtons.OK, MessageBoxIcon.Error);
             }
+        }
+
+        // Limpar os campos após cadastro
+        private void limparDadosCadastro()
+        {
+            this.textBoxNome.Text = null;
+            this.textBoxCPF.Text = null;
+            this.textBoxIdade.Text = null;
+            this.textBoxEmail.Text = null;
+            this.textBoxEstadoCivil.Text = null;
+            this.textBoxBairro.Text = null;
+            this.textBoxCargo.Text = null;
+        }
+
+        private void limparDadosDetalhes()
+        {
+            this.textBoxNumRegistroDetalhes.Text = null;
+        }
+
+        private void limparDadosRegistro()
+        {
+            this.textBoxPesquisarNomeRegistro.Text = null;
         }
 
         // Método para exibir o painel de cadastro
