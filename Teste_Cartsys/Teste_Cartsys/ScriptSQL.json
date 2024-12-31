@@ -1,0 +1,12 @@
+//        CREATE TABLE Pessoa (
+//    NumeroRegistro INT IDENTITY(1,1) PRIMARY KEY,    -- Use INT with IDENTITY for auto-incrementing number
+//    Nome VARCHAR(255) NOT NULL,                        -- String type for Name (use VARCHAR with a reasonable length)
+//    Cargo VARCHAR(255) NOT NULL,                        -- String type for Name (use VARCHAR with a reasonable length)
+//    CPF VARCHAR(14) NOT NULL,                          -- CPF field (typically 11 digits + formatting)
+//    Idade VARCHAR(3) NOT NULL,                         -- Age as a string (adjust length if needed)
+//    Email VARCHAR(255) NOT NULL,                       -- Email as a string, with length up to 255
+//    EstadoCivil VARCHAR(50) NOT NULL,                  -- Civil status (could vary in length)
+//    Bairro VARCHAR(255) NOT NULL,                      -- Neighborhood as a string
+//    DataCriacao DATETIME NOT NULL DEFAULT GETDATE(),   -- DateTime for creation, auto-filled with current time
+//    Situacao BIT NOT NULL DEFAULT 1                    -- Add Situacao as a boolean field (1 = true, 0 = false)
+//);
