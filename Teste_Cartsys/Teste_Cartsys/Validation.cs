@@ -20,9 +20,6 @@ namespace Teste_Cartsys
         /// <returns>bool</returns>
         public string ValidaDados(Pessoa pessoa)
         {
-            string id = pessoa.Idade;
-            int idade = (int)Convert.ToInt64(id);
-
             if (!ValidaUsuarioEmBranco(pessoa.Nome))
                 return msgCampoNaoInformado + ": Preencher nome do usuário no cadastro.";
 
@@ -35,7 +32,7 @@ namespace Teste_Cartsys
             if (!ValidaEstadoCivil(pessoa.EstadoCivil))
                 return msgEstadoCivil;
 
-            if (!ValidaCampoNumerosInteiros(idade))
+            if (!ValidaCampoNumerosInteiros(pessoa.Idade))
                 return msgValidaNumeroInteiro + ": CAMPO IDADE. ";
 
             if (!ValidaCPF(pessoa.CPF))
@@ -112,10 +109,13 @@ namespace Teste_Cartsys
         /// </summary>
         /// <param name="numeroRegistro">string </param>
         /// <returns>bool</returns>
-        public bool ValidaCampoNumerosInteiros(int campo)
+        public bool ValidaCampoNumerosInteiros(string campo)
         {
+            string id = campo;
+            int idade = (int)Convert.ToInt64(id);
+
             // You can add validation rules based on your specific needs.
-            if (campo >= 0)  // Example: Validate that it's a non-negative integer
+            if (idade >= 0)  // Example: Validate that it's a non-negative integer
             {
                 return true;
             }
