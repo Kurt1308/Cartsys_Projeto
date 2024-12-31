@@ -93,7 +93,7 @@ namespace Teste_Cartsys
         private void buttonPesquisarNumRegistro_Click(object sender, EventArgs e)
         {
             Pessoa pessoa = new Pessoa();
-            string nomePessoa = this.textBoxPesquisarNumRegistro.Text;
+            string nomePessoa = this.textBoxPesquisarNomeRegistro.Text;
             pessoa = _repositoryPessoa.PesquisarPessoa(nomePessoa);
 
             if(pessoa == null)
@@ -111,7 +111,7 @@ namespace Teste_Cartsys
         // Método para pesquisar e exibir os detalhes de uma pessoa
         private void buttonPesquisarDetalhesPessoa_Click(object sender, EventArgs e)
         {
-            string num = this.textBoxPesquisarNumRegistro.Text;
+            string num = this.textBoxNumRegistroDetalhes.Text;
             int numeroRegistro = (int)Convert.ToInt64(num);
 
             bool validacao;
