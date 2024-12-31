@@ -89,6 +89,16 @@ namespace Teste_Cartsys
             this.textBoxCargo.Text = null;
         }
 
+        private void limparDadosDetalhes()
+        {
+            this.textBoxNumRegistroDetalhes.Text = null;
+        }
+
+        private void limparDadosRegistro()
+        {
+            this.textBoxPesquisarNomeRegistro.Text = null;
+        }
+
         // Método para pesquisar pessoa pelo número de registro
         private void buttonPesquisarNumRegistro_Click(object sender, EventArgs e)
         {
@@ -104,6 +114,8 @@ namespace Teste_Cartsys
             // Exibir o nome da pessoa encontrada ou uma mensagem de erro
             this.labelCargoPessoaRet.Text = pessoa.Cargo;
             this.labelSituacaoPessoaRet.Text = true ? "Ativo" : "Inativo";
+
+                limparDadosRegistro();
             }
 
         }
@@ -128,6 +140,8 @@ namespace Teste_Cartsys
                     this.labelIdadeRetDetalhes.Text = pessoa.Idade;
                     this.labelEmailRetDetalhes.Text = pessoa.Email;
                     this.labelEstadoCivilRetDetalhes.Text = pessoa.EstadoCivil;
+
+                    limparDadosDetalhes();
                 }
                 else
                 {
