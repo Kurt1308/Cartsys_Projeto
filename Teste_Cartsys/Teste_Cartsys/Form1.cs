@@ -300,23 +300,30 @@ namespace Teste_Cartsys
         {
             if(this.textBoxEditCargoPessoa.Visible == false)
             {
-            this.buttonEditarPessoa.Text = "Salvar";
-            this.textBoxEditCargoPessoa.Visible = true;
-            this.labelCargoPessoaRet.Visible = false;
-            this.textBoxEditCargoPessoa.Text = this.labelCargoPessoaRet.Text;
-            this.textBoxEditNomePessoa.Visible = true;
-            this.labelNomePessoaPesquisaRetorno.Visible = false;
-            this.textBoxEditNomePessoa.Text = this.labelNomePessoaPesquisaRetorno.Text;
+                //Atualiza text button
+                this.buttonEditarPessoa.Text = "Salvar";
+                this.textBoxEditCargoPessoa.Visible = true;
+                this.labelCargoPessoaRet.Visible = false;
+                this.textBoxEditCargoPessoa.Text = this.labelCargoPessoaRet.Text;
+                this.textBoxEditNomePessoa.Visible = true;
+                this.labelNomePessoaPesquisaRetorno.Visible = false;
+                this.textBoxEditNomePessoa.Text = this.labelNomePessoaPesquisaRetorno.Text;
 
             } else
             {
+                Pessoa pessoa = new Pessoa();
+                pessoa = _repositoryPessoa.EditarPessoa(this.labelNomePessoaPesquisaRetorno.Text, this.textBoxEditNomePessoa.Text, this.textBoxEditCargoPessoa.Text);
+
+                //Atualiza text button
                 this.buttonEditarPessoa.Text = "Editar";
+                this.labelCargoPessoaRet.Text = pessoa.Cargo;
                 this.textBoxEditCargoPessoa.Visible = false;
                 this.labelCargoPessoaRet.Visible = true;
-                this.textBoxEditCargoPessoa.Text = this.labelCargoPessoaRet.Text;
                 this.textBoxEditNomePessoa.Visible = false;
                 this.labelNomePessoaPesquisaRetorno.Visible = true;
-                this.textBoxEditNomePessoa.Text = this.labelNomePessoaPesquisaRetorno.Text;
+                this.labelNomePessoaPesquisaRetorno.Text = pessoa.Nome;
+                
+                
             }
         }
     }

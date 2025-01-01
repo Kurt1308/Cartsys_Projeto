@@ -141,6 +141,27 @@ namespace Repositories
             return pessoa;
         }
 
+        public Pessoa EditarPessoa(string nomePessoaOld, string nomePessoaNew, string cargoPessoaNew)
+        {
+            // Retrieve the Pessoa entity based on the Nome
+            Pessoa pessoa = _sqlContext.pessoa
+                .Where(x => x.Nome == nomePessoaOld)
+                .FirstOrDefault();
 
+            if (pessoa != null)
+            {
+                // Toggle the value of the Situacao field
+                pessoa.Nome = nomePessoaNew; // Toggle Situacao
+                pessoa.Cargo = cargoPessoaNew; // Toggle Situacao
+
+                // Save the changes back to the database
+                _sqlContext.SaveChanges();
+            }
+                Pessoa pessoaUpdate = _sqlContext.pessoa
+                .Where(x => x.Nome == nomePessoaNew)
+                .FirstOrDefault();
+
+            return pessoaUpdate;  // Return the updated Pessoa object
+        }
     }
 }

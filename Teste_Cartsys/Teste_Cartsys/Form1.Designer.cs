@@ -298,7 +298,7 @@
             panelDetalhes.Controls.Add(buttonPesquisarDetalhesPessoa);
             panelDetalhes.Controls.Add(textBoxNumRegistroDetalhes);
             panelDetalhes.Controls.Add(labelNumRegistroDetalhes);
-            panelDetalhes.Location = new Point(628, 129);
+            panelDetalhes.Location = new Point(20, 179);
             panelDetalhes.Name = "panelDetalhes";
             panelDetalhes.Size = new Size(752, 244);
             panelDetalhes.TabIndex = 15;
