@@ -50,6 +50,7 @@
             labelNomeCadastro = new Label();
             panelDetalhes = new Panel();
             panelRegistro = new Panel();
+            buttonAlterarSituacao = new Button();
             labelSituacaoPessoaRet = new Label();
             label3 = new Label();
             labelCargoPessoaRet = new Label();
@@ -68,6 +69,8 @@
             buttonPesquisarDetalhesPessoa = new Button();
             textBoxNumRegistroDetalhes = new TextBox();
             labelNumRegistroDetalhes = new Label();
+            labelNomePesquisa = new Label();
+            labelNomePessoaPesquisaRetorno = new Label();
             panelCadastro.SuspendLayout();
             panelDetalhes.SuspendLayout();
             panelRegistro.SuspendLayout();
@@ -295,6 +298,9 @@
             // panelRegistro
             // 
             panelRegistro.Anchor = AnchorStyles.Top | AnchorStyles.Bottom;
+            panelRegistro.Controls.Add(labelNomePessoaPesquisaRetorno);
+            panelRegistro.Controls.Add(labelNomePesquisa);
+            panelRegistro.Controls.Add(buttonAlterarSituacao);
             panelRegistro.Controls.Add(labelSituacaoPessoaRet);
             panelRegistro.Controls.Add(label3);
             panelRegistro.Controls.Add(labelCargoPessoaRet);
@@ -306,6 +312,16 @@
             panelRegistro.Name = "panelRegistro";
             panelRegistro.Size = new Size(750, 242);
             panelRegistro.TabIndex = 15;
+            // 
+            // buttonAlterarSituacao
+            // 
+            buttonAlterarSituacao.Location = new Point(376, 35);
+            buttonAlterarSituacao.Name = "buttonAlterarSituacao";
+            buttonAlterarSituacao.Size = new Size(89, 23);
+            buttonAlterarSituacao.TabIndex = 18;
+            buttonAlterarSituacao.Text = "Alt. Situação";
+            buttonAlterarSituacao.UseVisualStyleBackColor = true;
+            buttonAlterarSituacao.Click += buttonAlterarSituacao_Click;
             // 
             // labelSituacaoPessoaRet
             // 
@@ -481,6 +497,26 @@
             labelNumRegistroDetalhes.TabIndex = 1;
             labelNumRegistroDetalhes.Text = "Número do Registro:";
             // 
+            // labelNomePesquisa
+            // 
+            labelNomePesquisa.AutoSize = true;
+            labelNomePesquisa.Font = new Font("Segoe UI", 11F, FontStyle.Bold);
+            labelNomePesquisa.Location = new Point(11, 122);
+            labelNomePesquisa.Name = "labelNomePesquisa";
+            labelNomePesquisa.Size = new Size(56, 20);
+            labelNomePesquisa.TabIndex = 19;
+            labelNomePesquisa.Text = "Nome:";
+            // 
+            // labelNomePessoaPesquisaRetorno
+            // 
+            labelNomePessoaPesquisaRetorno.AutoSize = true;
+            labelNomePessoaPesquisaRetorno.Font = new Font("Segoe UI", 11F);
+            labelNomePessoaPesquisaRetorno.Location = new Point(87, 122);
+            labelNomePessoaPesquisaRetorno.Name = "labelNomePessoaPesquisaRetorno";
+            labelNomePessoaPesquisaRetorno.Size = new Size(203, 20);
+            labelNomePessoaPesquisaRetorno.TabIndex = 20;
+            labelNomePessoaPesquisaRetorno.Text = "Nome da pessoa pesquisada.";
+            // 
             // Form1
             // 
             AutoScaleDimensions = new SizeF(7F, 15F);
@@ -544,5 +580,8 @@
         private TextBox textBoxCargo;
         private Label labelSituacaoPessoaRet;
         private Label label3;
+        private Button buttonAlterarSituacao;
+        private Label labelNomePessoaPesquisaRetorno;
+        private Label labelNomePesquisa;
     }
 }

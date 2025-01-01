@@ -1,5 +1,7 @@
 ﻿using Core.Interface;
 using Domain.Entity;
+using Microsoft.SqlServer.Management.Smo;
+using static System.Runtime.InteropServices.JavaScript.JSType;
 
 namespace Repositories
 {
@@ -64,5 +66,56 @@ namespace Repositories
 
             return pessoa;
         }
+
+        public Pessoa AlterarSituacaoPessoa(string nomePessoa)
+        {
+            // Retrieve the Pessoa entity based on the Nome
+            Pessoa pessoa = _sqlContext.pessoa
+                .Where(x => x.Nome == nomePessoa)
+                .FirstOrDefault();
+
+            if (pessoa != null)
+            {
+                // Toggle the value of the Situacao field
+                pessoa.Situacao = !pessoa.Situacao; // Toggle Situacao
+
+                // Save the changes back to the database
+                _sqlContext.SaveChanges();
+            }
+
+            return pessoa;  // Return the updated Pessoa object
+        }
+
+        //public Pessoa AlterarSituacaoPessoa(string nomePessoa)
+        //{
+        //    // Retrieve the Pessoa entity based on the Nome
+        //    Pessoa pessoa = _sqlContext.pessoa
+        //        .Where(x => x.Nome == nomePessoa)
+        //        .FirstOrDefault();
+
+        //    if (pessoa != null)
+        //    {
+        //        // Toggle the value of the Situacao field
+        //        Pessoa insert = new Pessoa()
+        //        {
+        //            Nome = pessoa.Nome,
+        //            CPF = pessoa.CPF,
+        //            Idade = pessoa.Idade,
+        //            Email = pessoa.Email,
+        //            EstadoCivil = pessoa.EstadoCivil,
+        //            Bairro = pessoa.Bairro,
+        //            Cargo = pessoa.Cargo,
+        //            Situacao = pessoa.Situacao = true ? false : true,
+        //            DataCriacao = pessoa.DataCriacao
+        //        };
+
+        //        // Save the changes back to the database
+        //        _sqlContext.pessoa.Update(insert);
+        //        _sqlContext.SaveChanges();
+        //    }
+
+        //    return pessoa;  // Return the updated Pessoa object
+
+        //}
     }
 }

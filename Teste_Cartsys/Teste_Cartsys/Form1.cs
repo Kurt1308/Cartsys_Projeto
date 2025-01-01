@@ -4,6 +4,7 @@ using Repositories;
 using Data;
 using Microsoft.Extensions.Configuration;
 using Microsoft.EntityFrameworkCore;
+using Microsoft.IdentityModel.Tokens;
 
 namespace Teste_Cartsys
 {
@@ -63,12 +64,13 @@ namespace Teste_Cartsys
             //Processo que valida input
             mensagemValidacao = _validation.ValidaDados(pessoa);
 
-            if(mensagemValidacao.Equals(string.Empty) || mensagemValidacao.Equals("") || String.IsNullOrEmpty(mensagemValidacao))
+            if (mensagemValidacao.Equals(string.Empty) || mensagemValidacao.Equals("") || String.IsNullOrEmpty(mensagemValidacao))
             {
                 // Cadastrar a pessoa usando o repositório
                 retorno = _repositoryPessoa.CadastrarPessoa(pessoa);
                 MessageBox.Show(retorno, "Cadastro");
-            } else
+            }
+            else
             {
                 MessageBox.Show(mensagemValidacao, "Erro", MessageBoxButtons.OK, MessageBoxIcon.Error);
             }
@@ -84,14 +86,16 @@ namespace Teste_Cartsys
             string nomePessoa = this.textBoxPesquisarNomeRegistro.Text;
             pessoa = _repositoryPessoa.PesquisarPessoa(nomePessoa);
 
-            if(pessoa == null)
+            if (pessoa == null)
             {
-            MessageBox.Show("Pessoa não encontrada.", "Erro", MessageBoxButtons.OK, MessageBoxIcon.Error);
-            } else
+                MessageBox.Show("Pessoa não encontrada.", "Erro", MessageBoxButtons.OK, MessageBoxIcon.Error);
+            }
+            else
             {
-            // Exibir o nome da pessoa encontrada ou uma mensagem de erro
-            this.labelCargoPessoaRet.Text = pessoa.Cargo;
-            this.labelSituacaoPessoaRet.Text = true ? "Ativo" : "Inativo";
+                // Exibir o nome da pessoa encontrada ou uma mensagem de erro
+                this.labelCargoPessoaRet.Text = pessoa.Cargo;
+                this.labelSituacaoPessoaRet.Text = true ? "Ativo" : "Inativo";
+                this.labelNomePessoaPesquisaRetorno.Text = pessoa.Nome;
 
                 limparDadosRegistro();
             }
@@ -107,7 +111,8 @@ namespace Teste_Cartsys
             bool validacao;
             validacao = _validation.ValidaCampoNumerosInteiros(num);
 
-            if (validacao) { 
+            if (validacao)
+            {
                 // Obter detalhes da pessoa usando o repositório
                 Pessoa pessoa = _repositoryPessoa.DetalhesPessoa(numeroRegistro);
 
@@ -183,5 +188,32 @@ namespace Teste_Cartsys
 
         // Método de clique no Label (exemplo sem ação definida)
         private void label2_Click(object sender, EventArgs e) { }
+
+        private void buttonAlterarSituacao_Click(object sender, EventArgs e)
+        {
+            Pessoa pessoa = new Pessoa();
+            string nomePessoa = this.labelNomePessoaPesquisaRetorno.Text;
+            pessoa = _repositoryPessoa.AlterarSituacaoPessoa(nomePessoa);
+
+            if (nomePessoa.IsNullOrEmpty())
+            {
+                MessageBox.Show("Nenhuma pessoa pesquisada.", "Erro", MessageBoxButtons.OK, MessageBoxIcon.Error);
+            } else
+            {
+                // Exibir o nome da pessoa encontrada ou uma mensagem de erro
+                this.labelCargoPessoaRet.Text = pessoa.Cargo;
+                this.labelNomePessoaPesquisaRetorno.Text = pessoa.Nome;
+                // Now, update the label text based on the Situacao value
+                if (pessoa.Situacao)
+                {
+                    this.labelSituacaoPessoaRet.Text = "Ativo";  // Set label text to "Ativo" if Situacao is true
+                }
+                else
+                {
+                    this.labelSituacaoPessoaRet.Text = "Inativo"; // Set label text to "Inativo" if Situacao is false
+                }
+
+            }
+        }
     }
 }
