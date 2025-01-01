@@ -1,5 +1,6 @@
 ﻿using Core.Interface;
 using Domain.Entity;
+using Elasticsearch.Net;
 using Microsoft.SqlServer.Management.Smo;
 using static System.Runtime.InteropServices.JavaScript.JSType;
 
@@ -16,36 +17,44 @@ namespace Repositories
 
         public string CadastrarPessoa(Pessoa pessoa)
         {
-            string retorno = "Ok, Pessoa cadastrada com sucesso!";
-            var data = DateTime.UtcNow;
-            Pessoa insert = new Pessoa()
-            {
-                Nome = pessoa.Nome,
-                CPF = pessoa.CPF,
-                Idade = pessoa.Idade,
-                Email = pessoa.Email,
-                EstadoCivil = pessoa.EstadoCivil,
-                Bairro = pessoa.Bairro,
-                Cargo = pessoa.Cargo,
-                Situacao = true,
-                DataCriacao = data
-            };
+            pessoa = pessoa = _sqlContext.pessoa
+                .Where(x => x.Nome == pessoa.Nome).FirstOrDefault();
 
-            try
-            {
-                // Add the new person to the context and save changes
-                _sqlContext.pessoa.Add(insert);
-                _sqlContext.SaveChanges();
 
-                return retorno;
+            if (pessoa == null)
+            {
+                string retorno = "Ok, Pessoa cadastrada com sucesso!";
+                var data = DateTime.UtcNow;
+                Pessoa insert = new Pessoa()
+                {
+                    Nome = pessoa.Nome,
+                    CPF = pessoa.CPF,
+                    Idade = pessoa.Idade,
+                    Email = pessoa.Email,
+                    EstadoCivil = pessoa.EstadoCivil,
+                    Bairro = pessoa.Bairro,
+                    Cargo = pessoa.Cargo,
+                    Situacao = true,
+                    DataCriacao = data
+                };
+
+                try
+                {
+                    // Add the new person to the context and save changes
+                    _sqlContext.pessoa.Add(insert);
+                    _sqlContext.SaveChanges();
+
+                    return retorno;
+                }
+                catch (Exception ex)
+                {
+                    // Log the exception message for debugging purposes
+                    Console.WriteLine(ex.Message);  // You can log this to a file or logger
+
+                    return $"Erro ao cadastrar pessoa: {ex.Message}";
+                } 
             }
-            catch (Exception ex)
-            {
-                // Log the exception message for debugging purposes
-                Console.WriteLine(ex.Message);  // You can log this to a file or logger
-
-                return $"Erro ao cadastrar pessoa: {ex.Message}";
-            }
+            return $"Pessoa já cadastrada no sistema.";
         }
 
         public Pessoa DetalhesPessoa(int numeroRegistro)
@@ -85,37 +94,5 @@ namespace Repositories
 
             return pessoa;  // Return the updated Pessoa object
         }
-
-        //public Pessoa AlterarSituacaoPessoa(string nomePessoa)
-        //{
-        //    // Retrieve the Pessoa entity based on the Nome
-        //    Pessoa pessoa = _sqlContext.pessoa
-        //        .Where(x => x.Nome == nomePessoa)
-        //        .FirstOrDefault();
-
-        //    if (pessoa != null)
-        //    {
-        //        // Toggle the value of the Situacao field
-        //        Pessoa insert = new Pessoa()
-        //        {
-        //            Nome = pessoa.Nome,
-        //            CPF = pessoa.CPF,
-        //            Idade = pessoa.Idade,
-        //            Email = pessoa.Email,
-        //            EstadoCivil = pessoa.EstadoCivil,
-        //            Bairro = pessoa.Bairro,
-        //            Cargo = pessoa.Cargo,
-        //            Situacao = pessoa.Situacao = true ? false : true,
-        //            DataCriacao = pessoa.DataCriacao
-        //        };
-
-        //        // Save the changes back to the database
-        //        _sqlContext.pessoa.Update(insert);
-        //        _sqlContext.SaveChanges();
-        //    }
-
-        //    return pessoa;  // Return the updated Pessoa object
-
-        //}
     }
 }
