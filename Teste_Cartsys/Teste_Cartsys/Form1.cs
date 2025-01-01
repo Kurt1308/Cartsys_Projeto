@@ -97,6 +97,24 @@ namespace Teste_Cartsys
                 this.labelSituacaoPessoaRet.Text = true ? "Ativo" : "Inativo";
                 this.labelNomePessoaPesquisaRetorno.Text = pessoa.Nome;
 
+                if (this.labelSituacaoPessoaRet.Text == "Ativo")
+                {
+                    this.buttonAlterarSituacao.Text = "Desativar";
+                    this.buttonAlterarSituacao.Visible = true;
+                    this.buttonDeletarPessoa.Visible = true;
+                }
+                else if (this.labelSituacaoPessoaRet.Text == "Inativo")
+                {
+                    this.buttonAlterarSituacao.Visible = true;
+                    this.buttonDeletarPessoa.Visible = true;
+                }
+                else
+                {
+                    this.buttonAlterarSituacao.Text = "";
+                    this.buttonAlterarSituacao.Visible = false;
+                    this.buttonDeletarPessoa.Visible = false;
+                }
+
                 limparDadosRegistro();
             }
 
@@ -188,7 +206,28 @@ namespace Teste_Cartsys
 
         // Método de clique no Label (exemplo sem ação definida)
         private void label2_Click(object sender, EventArgs e) { }
+        private void buttonDeletarPessoa_Click(object sender, EventArgs e)
+        {
+            Pessoa pessoa = new Pessoa();
+            string nomePessoa = this.labelNomePessoaPesquisaRetorno.Text;
+            pessoa = _repositoryPessoa.DeletarPessoa(nomePessoa);
 
+            if (pessoa != null)
+            {
+                // Exibir o nome da pessoa encontrada ou uma mensagem de erro
+                this.labelCargoPessoaRet.Text = "";
+                this.labelNomePessoaPesquisaRetorno.Text = "";
+                this.labelSituacaoPessoaRet.Text = "";
+                this.buttonDeletarPessoa.Visible = false;
+                this.buttonAlterarSituacao.Visible = false;
+
+                MessageBox.Show("Nº Registro deletado: " + pessoa.NumeroRegistro + Environment.NewLine + " Nome: " + pessoa.Nome, "Informação!!!", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+            }
+            else
+            {
+                MessageBox.Show("Erro ao deletar pessoa pesquisada.", "Erro", MessageBoxButtons.OK, MessageBoxIcon.Error);
+            }
+        }
         private void buttonAlterarSituacao_Click(object sender, EventArgs e)
         {
             Pessoa pessoa = new Pessoa();
@@ -214,6 +253,23 @@ namespace Teste_Cartsys
                     this.labelSituacaoPessoaRet.Text = "Inativo"; // Set label text to "Inativo" if Situacao is false
                 }
 
+                if (this.labelSituacaoPessoaRet.Text == "Ativo")
+                {
+                    this.buttonAlterarSituacao.Text = "Desativar";
+                    this.buttonAlterarSituacao.Visible = true;
+                    this.buttonDeletarPessoa.Visible = true;
+                }
+                else if (this.labelSituacaoPessoaRet.Text == "Inativo")
+                {
+                    this.buttonAlterarSituacao.Text = "Ativar";
+                    this.buttonDeletarPessoa.Visible = true;
+                    this.buttonAlterarSituacao.Visible = true;
+                }
+                else
+                {
+                    this.buttonDeletarPessoa.Visible = false;
+                    this.buttonAlterarSituacao.Visible = false;
+                }
             }
         }
 
@@ -231,5 +287,7 @@ namespace Teste_Cartsys
         {
 
         }
+
+        
     }
 }

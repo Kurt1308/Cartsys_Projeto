@@ -9,6 +9,7 @@ namespace Core.Interface
         string CadastrarPessoa(Pessoa pessoa);
         Pessoa PesquisarPessoa(string nomePessoa);
         Pessoa AlterarSituacaoPessoa(string nomePessoa);
+        Pessoa DeletarPessoa(string nomePessoa);
         Pessoa DetalhesPessoa(int numeroRegistro);
 
     }

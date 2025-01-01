@@ -9,7 +9,7 @@ namespace Teste_Cartsys
         private const string msgEstadoCivil = "Campo estado civil deve ser SOLTEIRO ou CASADO.";
         private const string msgValidaNumeroInteiro = "CAMPO DEVE CONTER APENAS NÚMEROS INTEIROS";
         private const string msgFormatoEmail = "EMAIL EM FORMATO NÃO ACEITO PELO SISTEMA.";
-        private const string msgFormatoCPF = "CPF EM FORMATO NÃO ACEITO PELO SISTEMA.";
+        private const string msgFormatoCPF = "CPF EM FORMATO NÃO ACEITO PELO SISTEMA.  FORMATO DEVE SER APENAS NÚMEROS INTEIROS NESSE PADRÃO - 111.111.111-11";
         
         
         /// <summary>
@@ -36,7 +36,7 @@ namespace Teste_Cartsys
                 return msgValidaNumeroInteiro + ": CAMPO IDADE. ";
 
             if (!ValidaCPF(pessoa.CPF))
-                return msgFormatoCPF + " FORMATO DEVE SER APENAS NÚMEROS INTEIROS NESSE PADRÃO - 111.111.111-11";
+                return msgFormatoCPF;
 
             if (!ValidaEmail(pessoa.Email))
                 return msgFormatoEmail;

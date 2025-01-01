@@ -101,5 +101,37 @@ namespace Repositories
 
             return pessoa;  // Return the updated Pessoa object
         }
+
+        public Pessoa DeletarPessoa(string nomePessoa)
+        {
+            // Retrieve the Pessoa entity based on the Nome
+            Pessoa pessoa = _sqlContext.pessoa
+                .Where(x => x.Nome == nomePessoa)
+                .FirstOrDefault();
+
+            if (pessoa != null)
+            {
+                try
+                {
+                    // Mark the entity for deletion
+                    _sqlContext.pessoa.Remove(pessoa);
+
+                    // Save the changes to the database, which will delete the record
+                    _sqlContext.SaveChanges();
+                }
+                catch (Exception ex)
+                {
+                    // Handle the exception, log it, or return a custom error message
+                    Console.WriteLine($"Error while deleting Pessoa: {ex.Message}");
+                    // Optionally, log the exception using a logger or throw the exception
+                    throw;  // Optionally, rethrow the exception if you want it to propagate
+                }
+            }
+
+            // Return the deleted pessoa or null if not found
+            return pessoa;
+        }
+
+
     }
 }
