@@ -122,7 +122,7 @@ namespace Repositories
                 catch (Exception ex)
                 {
                     // Handle the exception, log it, or return a custom error message
-                    Console.WriteLine($"Error while deleting Pessoa: {ex.Message}");
+                    Console.WriteLine($"Error ao deletar Pessoa: {ex.Message}");
                     // Optionally, log the exception using a logger or throw the exception
                     throw;  // Optionally, rethrow the exception if you want it to propagate
                 }
