@@ -32,10 +32,19 @@ namespace Repositories
             {
                 string retorno = "Ok, Pessoa cadastrada com sucesso!";
                 var data = DateTime.UtcNow;
+                // Ensure CPF is long enough (it should be 14 characters including the dots and hyphen)
+                string maskedCPF = pessoa.CPF;
+
+                if (maskedCPF.Length == 14)  // Ensure the CPF follows the format 111.333.444-00
+                {
+                    // Mask the characters between index 5 and 11 (the second part of the CPF)
+                    maskedCPF = maskedCPF.Substring(0, 4) + "xxxxx" + maskedCPF.Substring(11);
+                }
+
                 Pessoa insert = new Pessoa()
                 {
                     Nome = pessoa.Nome,
-                    CPF = pessoa.CPF,
+                    CPF = maskedCPF, // Save the masked CPF
                     Idade = pessoa.Idade,
                     Email = pessoa.Email,
                     EstadoCivil = pessoa.EstadoCivil,

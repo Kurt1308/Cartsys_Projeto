@@ -72,6 +72,8 @@
             labelPesquisarNumRegistro = new Label();
             buttonPesquisarNumRegistro = new Button();
             label9 = new Label();
+            label4 = new Label();
+            labelCPFDetalhesRet = new Label();
             panelCadastro.SuspendLayout();
             panelDetalhes.SuspendLayout();
             panelRegistro.SuspendLayout();
@@ -280,6 +282,8 @@
             // panelDetalhes
             // 
             panelDetalhes.Anchor = AnchorStyles.Top | AnchorStyles.Bottom;
+            panelDetalhes.Controls.Add(labelCPFDetalhesRet);
+            panelDetalhes.Controls.Add(label4);
             panelDetalhes.Controls.Add(labelEmailRetDetalhes);
             panelDetalhes.Controls.Add(labelEstadoCivilRetDetalhes);
             panelDetalhes.Controls.Add(labelIdadeRetDetalhes);
@@ -300,7 +304,7 @@
             // labelEmailRetDetalhes
             // 
             labelEmailRetDetalhes.AutoSize = true;
-            labelEmailRetDetalhes.Location = new Point(99, 154);
+            labelEmailRetDetalhes.Location = new Point(128, 139);
             labelEmailRetDetalhes.Name = "labelEmailRetDetalhes";
             labelEmailRetDetalhes.Size = new Size(140, 15);
             labelEmailRetDetalhes.TabIndex = 11;
@@ -309,7 +313,7 @@
             // labelEstadoCivilRetDetalhes
             // 
             labelEstadoCivilRetDetalhes.AutoSize = true;
-            labelEstadoCivilRetDetalhes.Location = new Point(128, 127);
+            labelEstadoCivilRetDetalhes.Location = new Point(128, 109);
             labelEstadoCivilRetDetalhes.Name = "labelEstadoCivilRetDetalhes";
             labelEstadoCivilRetDetalhes.Size = new Size(91, 15);
             labelEstadoCivilRetDetalhes.TabIndex = 10;
@@ -318,7 +322,7 @@
             // labelIdadeRetDetalhes
             // 
             labelIdadeRetDetalhes.AutoSize = true;
-            labelIdadeRetDetalhes.Location = new Point(106, 99);
+            labelIdadeRetDetalhes.Location = new Point(128, 80);
             labelIdadeRetDetalhes.Name = "labelIdadeRetDetalhes";
             labelIdadeRetDetalhes.Size = new Size(91, 15);
             labelIdadeRetDetalhes.TabIndex = 9;
@@ -328,7 +332,7 @@
             // labelNomeRetDetalhes
             // 
             labelNomeRetDetalhes.AutoSize = true;
-            labelNomeRetDetalhes.Location = new Point(103, 69);
+            labelNomeRetDetalhes.Location = new Point(128, 48);
             labelNomeRetDetalhes.Name = "labelNomeRetDetalhes";
             labelNomeRetDetalhes.Size = new Size(155, 15);
             labelNomeRetDetalhes.TabIndex = 8;
@@ -338,7 +342,7 @@
             // 
             labelEmailDetalhes.AutoSize = true;
             labelEmailDetalhes.Font = new Font("Segoe UI", 9F, FontStyle.Bold);
-            labelEmailDetalhes.Location = new Point(50, 153);
+            labelEmailDetalhes.Location = new Point(53, 139);
             labelEmailDetalhes.Name = "labelEmailDetalhes";
             labelEmailDetalhes.Size = new Size(44, 15);
             labelEmailDetalhes.TabIndex = 7;
@@ -348,7 +352,7 @@
             // 
             labelEstadoCivilDetalhes.AutoSize = true;
             labelEstadoCivilDetalhes.Font = new Font("Segoe UI", 9F, FontStyle.Bold);
-            labelEstadoCivilDetalhes.Location = new Point(50, 127);
+            labelEstadoCivilDetalhes.Location = new Point(53, 109);
             labelEstadoCivilDetalhes.Name = "labelEstadoCivilDetalhes";
             labelEstadoCivilDetalhes.Size = new Size(72, 15);
             labelEstadoCivilDetalhes.TabIndex = 6;
@@ -358,7 +362,7 @@
             // 
             labelIdadeDetalhes.AutoSize = true;
             labelIdadeDetalhes.Font = new Font("Segoe UI", 9F, FontStyle.Bold);
-            labelIdadeDetalhes.Location = new Point(50, 99);
+            labelIdadeDetalhes.Location = new Point(53, 80);
             labelIdadeDetalhes.Name = "labelIdadeDetalhes";
             labelIdadeDetalhes.Size = new Size(41, 15);
             labelIdadeDetalhes.TabIndex = 5;
@@ -368,7 +372,7 @@
             // 
             labelNomeDetalhes.AutoSize = true;
             labelNomeDetalhes.Font = new Font("Segoe UI", 9F, FontStyle.Bold);
-            labelNomeDetalhes.Location = new Point(48, 68);
+            labelNomeDetalhes.Location = new Point(50, 49);
             labelNomeDetalhes.Name = "labelNomeDetalhes";
             labelNomeDetalhes.Size = new Size(44, 15);
             labelNomeDetalhes.TabIndex = 4;
@@ -532,6 +536,25 @@
             label9.TabIndex = 0;
             label9.Text = "Cargo:";
             // 
+            // label4
+            // 
+            label4.AutoSize = true;
+            label4.Font = new Font("Segoe UI", 9F, FontStyle.Bold);
+            label4.Location = new Point(53, 167);
+            label4.Name = "label4";
+            label4.Size = new Size(30, 15);
+            label4.TabIndex = 12;
+            label4.Text = "CPF:";
+            // 
+            // labelCPFDetalhesRet
+            // 
+            labelCPFDetalhesRet.AutoSize = true;
+            labelCPFDetalhesRet.Location = new Point(128, 167);
+            labelCPFDetalhesRet.Name = "labelCPFDetalhesRet";
+            labelCPFDetalhesRet.Size = new Size(129, 15);
+            labelCPFDetalhesRet.TabIndex = 13;
+            labelCPFDetalhesRet.Text = "CPF pessoa pesquisada";
+            // 
             // Form1
             // 
             AutoScaleDimensions = new SizeF(7F, 15F);
@@ -600,5 +623,7 @@
         private Label labelNomePessoaPesquisaRetorno;
         private Label labelNomePesquisa;
         private Button buttonDeletarPessoa;
+        private Label labelCPFDetalhesRet;
+        private Label label4;
     }
 }

@@ -141,6 +141,7 @@ namespace Teste_Cartsys
                     this.labelIdadeRetDetalhes.Text = pessoa.Idade;
                     this.labelEmailRetDetalhes.Text = pessoa.Email;
                     this.labelEstadoCivilRetDetalhes.Text = pessoa.EstadoCivil;
+                    this.labelCPFDetalhesRet.Text = pessoa.CPF;
 
                     limparDadosDetalhes();
                 }
