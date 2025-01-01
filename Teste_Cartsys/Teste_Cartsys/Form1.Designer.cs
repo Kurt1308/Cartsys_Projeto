@@ -49,6 +49,8 @@
             textBoxNome = new TextBox();
             labelNomeCadastro = new Label();
             panelDetalhes = new Panel();
+            labelCPFDetalhesRet = new Label();
+            label4 = new Label();
             labelEmailRetDetalhes = new Label();
             labelEstadoCivilRetDetalhes = new Label();
             labelIdadeRetDetalhes = new Label();
@@ -61,6 +63,9 @@
             textBoxNumRegistroDetalhes = new TextBox();
             labelNumRegistroDetalhes = new Label();
             panelRegistro = new Panel();
+            textBoxEditNomePessoa = new TextBox();
+            textBoxEditCargoPessoa = new TextBox();
+            buttonEditarPessoa = new Button();
             buttonDeletarPessoa = new Button();
             labelNomePessoaPesquisaRetorno = new Label();
             labelNomePesquisa = new Label();
@@ -72,8 +77,6 @@
             labelPesquisarNumRegistro = new Label();
             buttonPesquisarNumRegistro = new Button();
             label9 = new Label();
-            label4 = new Label();
-            labelCPFDetalhesRet = new Label();
             panelCadastro.SuspendLayout();
             panelDetalhes.SuspendLayout();
             panelRegistro.SuspendLayout();
@@ -295,11 +298,30 @@
             panelDetalhes.Controls.Add(buttonPesquisarDetalhesPessoa);
             panelDetalhes.Controls.Add(textBoxNumRegistroDetalhes);
             panelDetalhes.Controls.Add(labelNumRegistroDetalhes);
-            panelDetalhes.Location = new Point(19, 177);
+            panelDetalhes.Location = new Point(628, 129);
             panelDetalhes.Name = "panelDetalhes";
             panelDetalhes.Size = new Size(752, 244);
             panelDetalhes.TabIndex = 15;
             panelDetalhes.Paint += panelDetalhes_Paint;
+            // 
+            // labelCPFDetalhesRet
+            // 
+            labelCPFDetalhesRet.AutoSize = true;
+            labelCPFDetalhesRet.Location = new Point(128, 167);
+            labelCPFDetalhesRet.Name = "labelCPFDetalhesRet";
+            labelCPFDetalhesRet.Size = new Size(129, 15);
+            labelCPFDetalhesRet.TabIndex = 13;
+            labelCPFDetalhesRet.Text = "CPF pessoa pesquisada";
+            // 
+            // label4
+            // 
+            label4.AutoSize = true;
+            label4.Font = new Font("Segoe UI", 9F, FontStyle.Bold);
+            label4.Location = new Point(53, 167);
+            label4.Name = "label4";
+            label4.Size = new Size(30, 15);
+            label4.TabIndex = 12;
+            label4.Text = "CPF:";
             // 
             // labelEmailRetDetalhes
             // 
@@ -410,6 +432,9 @@
             // panelRegistro
             // 
             panelRegistro.Anchor = AnchorStyles.Top | AnchorStyles.Bottom;
+            panelRegistro.Controls.Add(textBoxEditNomePessoa);
+            panelRegistro.Controls.Add(textBoxEditCargoPessoa);
+            panelRegistro.Controls.Add(buttonEditarPessoa);
             panelRegistro.Controls.Add(buttonDeletarPessoa);
             panelRegistro.Controls.Add(labelNomePessoaPesquisaRetorno);
             panelRegistro.Controls.Add(labelNomePesquisa);
@@ -426,6 +451,33 @@
             panelRegistro.Size = new Size(750, 242);
             panelRegistro.TabIndex = 15;
             panelRegistro.Paint += panelRegistro_Paint;
+            // 
+            // textBoxEditNomePessoa
+            // 
+            textBoxEditNomePessoa.Location = new Point(87, 119);
+            textBoxEditNomePessoa.Name = "textBoxEditNomePessoa";
+            textBoxEditNomePessoa.Size = new Size(197, 23);
+            textBoxEditNomePessoa.TabIndex = 24;
+            textBoxEditNomePessoa.Visible = false;
+            // 
+            // textBoxEditCargoPessoa
+            // 
+            textBoxEditCargoPessoa.Location = new Point(85, 40);
+            textBoxEditCargoPessoa.Name = "textBoxEditCargoPessoa";
+            textBoxEditCargoPessoa.Size = new Size(199, 23);
+            textBoxEditCargoPessoa.TabIndex = 23;
+            textBoxEditCargoPessoa.Visible = false;
+            // 
+            // buttonEditarPessoa
+            // 
+            buttonEditarPessoa.Location = new Point(376, 119);
+            buttonEditarPessoa.Name = "buttonEditarPessoa";
+            buttonEditarPessoa.Size = new Size(89, 23);
+            buttonEditarPessoa.TabIndex = 22;
+            buttonEditarPessoa.Text = "Editar";
+            buttonEditarPessoa.UseVisualStyleBackColor = true;
+            buttonEditarPessoa.Visible = false;
+            buttonEditarPessoa.Click += buttonEditarPessoa_Click;
             // 
             // buttonDeletarPessoa
             // 
@@ -536,25 +588,6 @@
             label9.TabIndex = 0;
             label9.Text = "Cargo:";
             // 
-            // label4
-            // 
-            label4.AutoSize = true;
-            label4.Font = new Font("Segoe UI", 9F, FontStyle.Bold);
-            label4.Location = new Point(53, 167);
-            label4.Name = "label4";
-            label4.Size = new Size(30, 15);
-            label4.TabIndex = 12;
-            label4.Text = "CPF:";
-            // 
-            // labelCPFDetalhesRet
-            // 
-            labelCPFDetalhesRet.AutoSize = true;
-            labelCPFDetalhesRet.Location = new Point(128, 167);
-            labelCPFDetalhesRet.Name = "labelCPFDetalhesRet";
-            labelCPFDetalhesRet.Size = new Size(129, 15);
-            labelCPFDetalhesRet.TabIndex = 13;
-            labelCPFDetalhesRet.Text = "CPF pessoa pesquisada";
-            // 
             // Form1
             // 
             AutoScaleDimensions = new SizeF(7F, 15F);
@@ -625,5 +658,8 @@
         private Button buttonDeletarPessoa;
         private Label labelCPFDetalhesRet;
         private Label label4;
+        private Button buttonEditarPessoa;
+        private TextBox textBoxEditCargoPessoa;
+        private TextBox textBoxEditNomePessoa;
     }
 }

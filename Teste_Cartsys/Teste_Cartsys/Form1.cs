@@ -102,17 +102,20 @@ namespace Teste_Cartsys
                     this.buttonAlterarSituacao.Text = "Desativar";
                     this.buttonAlterarSituacao.Visible = true;
                     this.buttonDeletarPessoa.Visible = true;
+                    this.buttonEditarPessoa.Visible = true;
                 }
                 else if (this.labelSituacaoPessoaRet.Text == "Inativo")
                 {
                     this.buttonAlterarSituacao.Visible = true;
                     this.buttonDeletarPessoa.Visible = true;
+                    this.buttonEditarPessoa.Visible = true;
                 }
                 else
                 {
                     this.buttonAlterarSituacao.Text = "";
                     this.buttonAlterarSituacao.Visible = false;
                     this.buttonDeletarPessoa.Visible = false;
+                    this.buttonEditarPessoa.Visible = false;
                 }
 
                 limparDadosRegistro();
@@ -221,6 +224,7 @@ namespace Teste_Cartsys
                 this.labelSituacaoPessoaRet.Text = "";
                 this.buttonDeletarPessoa.Visible = false;
                 this.buttonAlterarSituacao.Visible = false;
+                this.buttonEditarPessoa.Visible = false;
 
                 MessageBox.Show("Nº Registro deletado: " + pessoa.NumeroRegistro + Environment.NewLine + " Nome: " + pessoa.Nome, "Informação!!!", MessageBoxButtons.OK, MessageBoxIcon.Warning);
             }
@@ -259,17 +263,20 @@ namespace Teste_Cartsys
                     this.buttonAlterarSituacao.Text = "Desativar";
                     this.buttonAlterarSituacao.Visible = true;
                     this.buttonDeletarPessoa.Visible = true;
+                    this.buttonEditarPessoa.Visible = true;
                 }
                 else if (this.labelSituacaoPessoaRet.Text == "Inativo")
                 {
                     this.buttonAlterarSituacao.Text = "Ativar";
                     this.buttonDeletarPessoa.Visible = true;
                     this.buttonAlterarSituacao.Visible = true;
+                    this.buttonEditarPessoa.Visible = true;
                 }
                 else
                 {
                     this.buttonDeletarPessoa.Visible = false;
                     this.buttonAlterarSituacao.Visible = false;
+                    this.buttonEditarPessoa.Visible = false;
                 }
             }
         }
@@ -289,6 +296,28 @@ namespace Teste_Cartsys
 
         }
 
-        
+        private void buttonEditarPessoa_Click(object sender, EventArgs e)
+        {
+            if(this.textBoxEditCargoPessoa.Visible == false)
+            {
+            this.buttonEditarPessoa.Text = "Salvar";
+            this.textBoxEditCargoPessoa.Visible = true;
+            this.labelCargoPessoaRet.Visible = false;
+            this.textBoxEditCargoPessoa.Text = this.labelCargoPessoaRet.Text;
+            this.textBoxEditNomePessoa.Visible = true;
+            this.labelNomePessoaPesquisaRetorno.Visible = false;
+            this.textBoxEditNomePessoa.Text = this.labelNomePessoaPesquisaRetorno.Text;
+
+            } else
+            {
+                this.buttonEditarPessoa.Text = "Editar";
+                this.textBoxEditCargoPessoa.Visible = false;
+                this.labelCargoPessoaRet.Visible = true;
+                this.textBoxEditCargoPessoa.Text = this.labelCargoPessoaRet.Text;
+                this.textBoxEditNomePessoa.Visible = false;
+                this.labelNomePessoaPesquisaRetorno.Visible = true;
+                this.textBoxEditNomePessoa.Text = this.labelNomePessoaPesquisaRetorno.Text;
+            }
+        }
     }
 }
