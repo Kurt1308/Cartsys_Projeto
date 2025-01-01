@@ -48,6 +48,7 @@
             textBoxCPF = new TextBox();
             textBoxNome = new TextBox();
             labelNomeCadastro = new Label();
+            panelDetalhes = new Panel();
             panelRegistro = new Panel();
             labelSituacaoPessoaRet = new Label();
             label3 = new Label();
@@ -56,7 +57,6 @@
             labelPesquisarNumRegistro = new Label();
             buttonPesquisarNumRegistro = new Button();
             label9 = new Label();
-            panelDetalhes = new Panel();
             labelEmailRetDetalhes = new Label();
             labelEstadoCivilRetDetalhes = new Label();
             labelIdadeRetDetalhes = new Label();
@@ -68,14 +68,14 @@
             buttonPesquisarDetalhesPessoa = new Button();
             textBoxNumRegistroDetalhes = new TextBox();
             labelNumRegistroDetalhes = new Label();
-            labelTituloDetalhes = new Label();
             panelCadastro.SuspendLayout();
-            panelRegistro.SuspendLayout();
             panelDetalhes.SuspendLayout();
+            panelRegistro.SuspendLayout();
             SuspendLayout();
             // 
             // label1
             // 
+            label1.Anchor = AnchorStyles.Top;
             label1.Font = new Font("Segoe UI", 20F);
             label1.Location = new Point(315, 25);
             label1.Name = "label1";
@@ -97,6 +97,7 @@
             // 
             // button3
             // 
+            button3.Anchor = AnchorStyles.Top | AnchorStyles.Right;
             button3.Font = new Font("Segoe UI", 14F);
             button3.Location = new Point(577, 110);
             button3.Name = "button3";
@@ -108,6 +109,7 @@
             // 
             // button2
             // 
+            button2.Anchor = AnchorStyles.Top;
             button2.Font = new Font("Segoe UI", 14F);
             button2.Location = new Point(304, 110);
             button2.Name = "button2";
@@ -119,6 +121,7 @@
             // 
             // panelCadastro
             // 
+            panelCadastro.Anchor = AnchorStyles.Top | AnchorStyles.Bottom;
             panelCadastro.Controls.Add(label2);
             panelCadastro.Controls.Add(textBoxCargo);
             panelCadastro.Controls.Add(buttonEnviarCadastro);
@@ -269,8 +272,29 @@
             labelNomeCadastro.TabIndex = 0;
             labelNomeCadastro.Text = "Nome:";
             // 
+            // panelDetalhes
+            // 
+            panelDetalhes.Anchor = AnchorStyles.Top | AnchorStyles.Bottom;
+            panelDetalhes.Controls.Add(panelRegistro);
+            panelDetalhes.Controls.Add(labelEmailRetDetalhes);
+            panelDetalhes.Controls.Add(labelEstadoCivilRetDetalhes);
+            panelDetalhes.Controls.Add(labelIdadeRetDetalhes);
+            panelDetalhes.Controls.Add(labelNomeRetDetalhes);
+            panelDetalhes.Controls.Add(labelEmailDetalhes);
+            panelDetalhes.Controls.Add(labelEstadoCivilDetalhes);
+            panelDetalhes.Controls.Add(labelIdadeDetalhes);
+            panelDetalhes.Controls.Add(labelNomeDetalhes);
+            panelDetalhes.Controls.Add(buttonPesquisarDetalhesPessoa);
+            panelDetalhes.Controls.Add(textBoxNumRegistroDetalhes);
+            panelDetalhes.Controls.Add(labelNumRegistroDetalhes);
+            panelDetalhes.Location = new Point(22, 182);
+            panelDetalhes.Name = "panelDetalhes";
+            panelDetalhes.Size = new Size(752, 244);
+            panelDetalhes.TabIndex = 15;
+            // 
             // panelRegistro
             // 
+            panelRegistro.Anchor = AnchorStyles.Top | AnchorStyles.Bottom;
             panelRegistro.Controls.Add(labelSituacaoPessoaRet);
             panelRegistro.Controls.Add(label3);
             panelRegistro.Controls.Add(labelCargoPessoaRet);
@@ -278,7 +302,7 @@
             panelRegistro.Controls.Add(labelPesquisarNumRegistro);
             panelRegistro.Controls.Add(buttonPesquisarNumRegistro);
             panelRegistro.Controls.Add(label9);
-            panelRegistro.Location = new Point(19, 182);
+            panelRegistro.Location = new Point(0, 0);
             panelRegistro.Name = "panelRegistro";
             panelRegistro.Size = new Size(750, 242);
             panelRegistro.TabIndex = 15;
@@ -350,25 +374,6 @@
             label9.Size = new Size(59, 21);
             label9.TabIndex = 0;
             label9.Text = "Cargo:";
-            // 
-            // panelDetalhes
-            // 
-            panelDetalhes.Controls.Add(labelEmailRetDetalhes);
-            panelDetalhes.Controls.Add(labelEstadoCivilRetDetalhes);
-            panelDetalhes.Controls.Add(labelIdadeRetDetalhes);
-            panelDetalhes.Controls.Add(labelNomeRetDetalhes);
-            panelDetalhes.Controls.Add(labelEmailDetalhes);
-            panelDetalhes.Controls.Add(labelEstadoCivilDetalhes);
-            panelDetalhes.Controls.Add(labelIdadeDetalhes);
-            panelDetalhes.Controls.Add(labelNomeDetalhes);
-            panelDetalhes.Controls.Add(buttonPesquisarDetalhesPessoa);
-            panelDetalhes.Controls.Add(textBoxNumRegistroDetalhes);
-            panelDetalhes.Controls.Add(labelNumRegistroDetalhes);
-            panelDetalhes.Controls.Add(labelTituloDetalhes);
-            panelDetalhes.Location = new Point(20, 182);
-            panelDetalhes.Name = "panelDetalhes";
-            panelDetalhes.Size = new Size(752, 244);
-            panelDetalhes.TabIndex = 15;
             // 
             // labelEmailRetDetalhes
             // 
@@ -476,22 +481,11 @@
             labelNumRegistroDetalhes.TabIndex = 1;
             labelNumRegistroDetalhes.Text = "Número do Registro:";
             // 
-            // labelTituloDetalhes
-            // 
-            labelTituloDetalhes.AutoSize = true;
-            labelTituloDetalhes.Font = new Font("Segoe UI", 12F, FontStyle.Bold);
-            labelTituloDetalhes.Location = new Point(273, 12);
-            labelTituloDetalhes.Name = "labelTituloDetalhes";
-            labelTituloDetalhes.Size = new Size(213, 21);
-            labelTituloDetalhes.TabIndex = 0;
-            labelTituloDetalhes.Text = "Painel para exibir detalhes";
-            // 
             // Form1
             // 
             AutoScaleDimensions = new SizeF(7F, 15F);
             AutoScaleMode = AutoScaleMode.Font;
             ClientSize = new Size(800, 450);
-            Controls.Add(panelRegistro);
             Controls.Add(panelDetalhes);
             Controls.Add(panelCadastro);
             Controls.Add(button2);
@@ -502,10 +496,10 @@
             Text = "Form1";
             panelCadastro.ResumeLayout(false);
             panelCadastro.PerformLayout();
-            panelRegistro.ResumeLayout(false);
-            panelRegistro.PerformLayout();
             panelDetalhes.ResumeLayout(false);
             panelDetalhes.PerformLayout();
+            panelRegistro.ResumeLayout(false);
+            panelRegistro.PerformLayout();
             ResumeLayout(false);
         }
 
@@ -534,7 +528,6 @@
         private Button buttonPesquisarNumRegistro;
         private Label label9;
         private Panel panelDetalhes;
-        private Label labelTituloDetalhes;
         private Button buttonPesquisarDetalhesPessoa;
         private TextBox textBoxNumRegistroDetalhes;
         private Label labelNumRegistroDetalhes;
