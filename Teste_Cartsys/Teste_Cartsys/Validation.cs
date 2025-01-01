@@ -98,7 +98,7 @@ namespace Teste_Cartsys
         /// <returns>bool</returns>
         public bool ValidaEstadoCivil(string campo)
         {
-            if (campo.ToUpper() == "SOLTEIRO" || campo.ToUpper() == "CASADO")
+            if (campo.ToUpper() == "SOLTEIRO" || campo.ToUpper() == "CASADO" || campo.ToUpper() == "CASADA" || campo.ToUpper() == "SOLTEIRA")
                 return true;
             return false;
         }

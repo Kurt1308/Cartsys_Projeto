@@ -53,7 +53,7 @@ namespace Teste_Cartsys
             string idade = this.textBoxIdade.Text;
             string email = this.textBoxEmail.Text;
             string estadoCivil = this.textBoxEstadoCivil.Text;
-            string cargo = this.textBoxEstadoCivil.Text;
+            string cargo = this.textBoxCargo.Text;
             bool situacao = true;
             string bairro = this.textBoxBairro.Text;
 
