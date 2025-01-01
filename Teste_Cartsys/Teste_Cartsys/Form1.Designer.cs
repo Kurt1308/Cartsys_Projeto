@@ -50,6 +50,8 @@
             labelNomeCadastro = new Label();
             panelDetalhes = new Panel();
             panelRegistro = new Panel();
+            labelNomePessoaPesquisaRetorno = new Label();
+            labelNomePesquisa = new Label();
             buttonAlterarSituacao = new Button();
             labelSituacaoPessoaRet = new Label();
             label3 = new Label();
@@ -69,8 +71,6 @@
             buttonPesquisarDetalhesPessoa = new Button();
             textBoxNumRegistroDetalhes = new TextBox();
             labelNumRegistroDetalhes = new Label();
-            labelNomePesquisa = new Label();
-            labelNomePessoaPesquisaRetorno = new Label();
             panelCadastro.SuspendLayout();
             panelDetalhes.SuspendLayout();
             panelRegistro.SuspendLayout();
@@ -144,6 +144,7 @@
             panelCadastro.Name = "panelCadastro";
             panelCadastro.Size = new Size(750, 242);
             panelCadastro.TabIndex = 8;
+            panelCadastro.Paint += panelCadastro_Paint;
             // 
             // label2
             // 
@@ -278,7 +279,6 @@
             // panelDetalhes
             // 
             panelDetalhes.Anchor = AnchorStyles.Top | AnchorStyles.Bottom;
-            panelDetalhes.Controls.Add(panelRegistro);
             panelDetalhes.Controls.Add(labelEmailRetDetalhes);
             panelDetalhes.Controls.Add(labelEstadoCivilRetDetalhes);
             panelDetalhes.Controls.Add(labelIdadeRetDetalhes);
@@ -290,10 +290,11 @@
             panelDetalhes.Controls.Add(buttonPesquisarDetalhesPessoa);
             panelDetalhes.Controls.Add(textBoxNumRegistroDetalhes);
             panelDetalhes.Controls.Add(labelNumRegistroDetalhes);
-            panelDetalhes.Location = new Point(22, 182);
+            panelDetalhes.Location = new Point(22, 180);
             panelDetalhes.Name = "panelDetalhes";
             panelDetalhes.Size = new Size(752, 244);
             panelDetalhes.TabIndex = 15;
+            panelDetalhes.Paint += panelDetalhes_Paint;
             // 
             // panelRegistro
             // 
@@ -308,10 +309,31 @@
             panelRegistro.Controls.Add(labelPesquisarNumRegistro);
             panelRegistro.Controls.Add(buttonPesquisarNumRegistro);
             panelRegistro.Controls.Add(label9);
-            panelRegistro.Location = new Point(0, 0);
+            panelRegistro.Location = new Point(21, 179);
             panelRegistro.Name = "panelRegistro";
             panelRegistro.Size = new Size(750, 242);
             panelRegistro.TabIndex = 15;
+            panelRegistro.Paint += panelRegistro_Paint;
+            // 
+            // labelNomePessoaPesquisaRetorno
+            // 
+            labelNomePessoaPesquisaRetorno.AutoSize = true;
+            labelNomePessoaPesquisaRetorno.Font = new Font("Segoe UI", 11F);
+            labelNomePessoaPesquisaRetorno.Location = new Point(87, 122);
+            labelNomePessoaPesquisaRetorno.Name = "labelNomePessoaPesquisaRetorno";
+            labelNomePessoaPesquisaRetorno.Size = new Size(203, 20);
+            labelNomePessoaPesquisaRetorno.TabIndex = 20;
+            labelNomePessoaPesquisaRetorno.Text = "Nome da pessoa pesquisada.";
+            // 
+            // labelNomePesquisa
+            // 
+            labelNomePesquisa.AutoSize = true;
+            labelNomePesquisa.Font = new Font("Segoe UI", 11F, FontStyle.Bold);
+            labelNomePesquisa.Location = new Point(11, 122);
+            labelNomePesquisa.Name = "labelNomePesquisa";
+            labelNomePesquisa.Size = new Size(56, 20);
+            labelNomePesquisa.TabIndex = 19;
+            labelNomePesquisa.Text = "Nome:";
             // 
             // buttonAlterarSituacao
             // 
@@ -497,32 +519,13 @@
             labelNumRegistroDetalhes.TabIndex = 1;
             labelNumRegistroDetalhes.Text = "Número do Registro:";
             // 
-            // labelNomePesquisa
-            // 
-            labelNomePesquisa.AutoSize = true;
-            labelNomePesquisa.Font = new Font("Segoe UI", 11F, FontStyle.Bold);
-            labelNomePesquisa.Location = new Point(11, 122);
-            labelNomePesquisa.Name = "labelNomePesquisa";
-            labelNomePesquisa.Size = new Size(56, 20);
-            labelNomePesquisa.TabIndex = 19;
-            labelNomePesquisa.Text = "Nome:";
-            // 
-            // labelNomePessoaPesquisaRetorno
-            // 
-            labelNomePessoaPesquisaRetorno.AutoSize = true;
-            labelNomePessoaPesquisaRetorno.Font = new Font("Segoe UI", 11F);
-            labelNomePessoaPesquisaRetorno.Location = new Point(87, 122);
-            labelNomePessoaPesquisaRetorno.Name = "labelNomePessoaPesquisaRetorno";
-            labelNomePessoaPesquisaRetorno.Size = new Size(203, 20);
-            labelNomePessoaPesquisaRetorno.TabIndex = 20;
-            labelNomePessoaPesquisaRetorno.Text = "Nome da pessoa pesquisada.";
-            // 
             // Form1
             // 
             AutoScaleDimensions = new SizeF(7F, 15F);
             AutoScaleMode = AutoScaleMode.Font;
             ClientSize = new Size(800, 450);
             Controls.Add(panelDetalhes);
+            Controls.Add(panelRegistro);
             Controls.Add(panelCadastro);
             Controls.Add(button2);
             Controls.Add(button3);

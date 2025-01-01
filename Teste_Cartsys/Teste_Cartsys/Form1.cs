@@ -198,7 +198,8 @@ namespace Teste_Cartsys
             if (nomePessoa.IsNullOrEmpty())
             {
                 MessageBox.Show("Nenhuma pessoa pesquisada.", "Erro", MessageBoxButtons.OK, MessageBoxIcon.Error);
-            } else
+            }
+            else
             {
                 // Exibir o nome da pessoa encontrada ou uma mensagem de erro
                 this.labelCargoPessoaRet.Text = pessoa.Cargo;
@@ -214,6 +215,21 @@ namespace Teste_Cartsys
                 }
 
             }
+        }
+
+        private void panelDetalhes_Paint(object sender, PaintEventArgs e)
+        {
+
+        }
+
+        private void panelRegistro_Paint(object sender, PaintEventArgs e)
+        {
+
+        }
+
+        private void panelCadastro_Paint(object sender, PaintEventArgs e)
+        {
+
         }
     }
 }

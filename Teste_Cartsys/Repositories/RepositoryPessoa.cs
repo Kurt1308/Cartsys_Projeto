@@ -17,11 +17,18 @@ namespace Repositories
 
         public string CadastrarPessoa(Pessoa pessoa)
         {
-            pessoa = pessoa = _sqlContext.pessoa
-                .Where(x => x.Nome == pessoa.Nome).FirstOrDefault();
+            // Create a new Pessoa instance and set its Nome property
+            Pessoa pessoaPesquisada = new Pessoa();
+            pessoaPesquisada.Nome = pessoa.Nome;  // Assuming pessoa is already defined and has the Nome value
+
+            // Query the Pessoa DbSet to find the first matching record based on the Nome
+            pessoaPesquisada = _sqlContext.pessoa
+                .Where(x => x.Nome == pessoaPesquisada.Nome)
+                .FirstOrDefault();  // Get the first matching record or null if no match is found
 
 
-            if (pessoa == null)
+
+            if (pessoaPesquisada == null)
             {
                 string retorno = "Ok, Pessoa cadastrada com sucesso!";
                 var data = DateTime.UtcNow;
