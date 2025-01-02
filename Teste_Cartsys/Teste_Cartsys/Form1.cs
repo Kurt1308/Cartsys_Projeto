@@ -155,71 +155,6 @@ namespace Teste_Cartsys
             }
         }
 
-        // Limpar os campos após cadastro
-        private void limparDadosCadastro()
-        {
-            this.textBoxNome.Text = null;
-            this.textBoxCPF.Text = null;
-            this.textBoxIdade.Text = null;
-            this.textBoxEmail.Text = null;
-            this.textBoxEstadoCivil.Text = null;
-            this.textBoxBairro.Text = null;
-            this.textBoxCargo.Text = null;
-        }
-
-        private void limparDadosDetalhes()
-        {
-            this.textBoxNumRegistroDetalhes.Text = null;
-            this.labelNomeRetDetalhes.Text = null;
-            this.labelIdadeRetDetalhes.Text = null;
-            this.labelEstadoCivilRetDetalhes.Text = null;
-            this.labelEmailRetDetalhes.Text = null;
-            this.labelCPFDetalhesRet.Text = null;
-        }
-
-        private void limparDadosRegistro()
-        {
-            this.textBoxPesquisarNomeRegistro.Text = null;
-            this.labelCargoPessoaRet.Text = null;
-            this.labelSituacaoPessoaRet.Text = null;
-            this.labelNomePessoaPesquisaRetorno.Text = null;
-        }
-
-        // Método para exibir o painel de cadastro
-        private void button1_Click(object sender, EventArgs e)
-        {
-            this.panelDetalhes.Visible = false;
-            this.limparDadosDetalhes();
-            this.panelRegistro.Visible = false;
-            this.limparDadosRegistro();
-            this.panelCadastro.Visible = true;
-        }
-
-        // Método para exibir o painel de registro
-        private void button2_Click(object sender, EventArgs e)
-        {
-            this.panelCadastro.Visible = false;
-            this.limparDadosCadastro();
-            this.panelDetalhes.Visible = false;
-            this.limparDadosDetalhes();
-            this.panelRegistro.Visible = true;
-        }
-
-        // Método para exibir o painel de detalhes
-        private void button3_Click(object sender, EventArgs e)
-        {
-            this.panelRegistro.Visible = false;
-            this.limparDadosRegistro();
-            this.panelCadastro.Visible = false;
-            this.limparDadosCadastro();
-            this.panelDetalhes.Visible = true;
-        }
-
-        // Método de clique no Label (exemplo sem ação definida)
-        private void label1_Click(object sender, EventArgs e) { }
-
-        // Método de clique no Label (exemplo sem ação definida)
-        private void label2_Click(object sender, EventArgs e) { }
         private void buttonDeletarPessoa_Click(object sender, EventArgs e)
         {
             Pessoa pessoa = new Pessoa();
@@ -291,24 +226,9 @@ namespace Teste_Cartsys
             }
         }
 
-        private void panelDetalhes_Paint(object sender, PaintEventArgs e)
-        {
-
-        }
-
-        private void panelRegistro_Paint(object sender, PaintEventArgs e)
-        {
-
-        }
-
-        private void panelCadastro_Paint(object sender, PaintEventArgs e)
-        {
-
-        }
-
         private void buttonEditarPessoa_Click(object sender, EventArgs e)
         {
-            if(this.textBoxEditCargoPessoa.Visible == false)
+            if (this.textBoxEditCargoPessoa.Visible == false)
             {
                 //Atualiza text button
                 this.buttonEditarPessoa.Text = "Salvar";
@@ -319,7 +239,8 @@ namespace Teste_Cartsys
                 this.labelNomePessoaPesquisaRetorno.Visible = false;
                 this.textBoxEditNomePessoa.Text = this.labelNomePessoaPesquisaRetorno.Text;
 
-            } else
+            }
+            else
             {
                 Pessoa pessoa = new Pessoa();
                 pessoa = _repositoryPessoa.EditarPessoa(this.labelNomePessoaPesquisaRetorno.Text, this.textBoxEditNomePessoa.Text, this.textBoxEditCargoPessoa.Text);
@@ -334,5 +255,85 @@ namespace Teste_Cartsys
                 this.labelNomePessoaPesquisaRetorno.Text = pessoa.Nome;
             }
         }
+
+        // Limpar os campos após cadastro
+        private void limparDadosCadastro()
+        {
+            this.textBoxNome.Text = null;
+            this.textBoxCPF.Text = null;
+            this.textBoxIdade.Text = null;
+            this.textBoxEmail.Text = null;
+            this.textBoxEstadoCivil.Text = null;
+            this.textBoxBairro.Text = null;
+            this.textBoxCargo.Text = null;
+        }
+        // Limpar os campos após receber dados do painel detalhes
+        private void limparDadosDetalhes()
+        {
+            this.textBoxNumRegistroDetalhes.Text = null;
+            this.labelNomeRetDetalhes.Text = null;
+            this.labelIdadeRetDetalhes.Text = null;
+            this.labelEstadoCivilRetDetalhes.Text = null;
+            this.labelEmailRetDetalhes.Text = null;
+            this.labelCPFDetalhesRet.Text = null;
+        }
+        // Limpar os campos após receber dados do painel Pesquisar por Registro
+        private void limparDadosRegistro()
+        {
+            this.textBoxPesquisarNomeRegistro.Text = null;
+            this.labelCargoPessoaRet.Text = null;
+            this.labelSituacaoPessoaRet.Text = null;
+            this.labelNomePessoaPesquisaRetorno.Text = null;
+        }
+
+        // Método para exibir o painel de cadastro
+        private void button1_Click(object sender, EventArgs e)
+        {
+            this.panelDetalhes.Visible = false;
+            this.limparDadosDetalhes();
+            this.panelRegistro.Visible = false;
+            this.limparDadosRegistro();
+            this.panelCadastro.Visible = true;
+        }
+
+        // Método para exibir o painel de registro
+        private void button2_Click(object sender, EventArgs e)
+        {
+            this.panelCadastro.Visible = false;
+            this.limparDadosCadastro();
+            this.panelDetalhes.Visible = false;
+            this.limparDadosDetalhes();
+            this.panelRegistro.Visible = true;
+        }
+
+        // Método para exibir o painel de detalhes
+        private void button3_Click(object sender, EventArgs e)
+        {
+            this.panelRegistro.Visible = false;
+            this.limparDadosRegistro();
+            this.panelCadastro.Visible = false;
+            this.limparDadosCadastro();
+            this.panelDetalhes.Visible = true;
+        }
+        
+        private void panelDetalhes_Paint(object sender, PaintEventArgs e)
+        {
+
+        }
+
+        private void panelRegistro_Paint(object sender, PaintEventArgs e)
+        {
+
+        }
+
+        private void panelCadastro_Paint(object sender, PaintEventArgs e)
+        {
+
+        }
+        // Método de clique no Label (exemplo sem ação definida)
+        private void label1_Click(object sender, EventArgs e) { }
+
+        // Método de clique no Label (exemplo sem ação definida)
+        private void label2_Click(object sender, EventArgs e) { }
     }
 }
