@@ -5,6 +5,7 @@ using Data;
 using Microsoft.Extensions.Configuration;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.IdentityModel.Tokens;
+using Nest;
 
 namespace Teste_Cartsys
 {
@@ -94,29 +95,29 @@ namespace Teste_Cartsys
             {
                 // Exibir o nome da pessoa encontrada ou uma mensagem de erro
                 this.labelCargoPessoaRet.Text = pessoa.Cargo;
-                this.labelSituacaoPessoaRet.Text = true ? "Ativo" : "Inativo";
-                this.labelNomePessoaPesquisaRetorno.Text = pessoa.Nome;
 
-                if (this.labelSituacaoPessoaRet.Text == "Ativo")
+                if (pessoa.Situacao)
                 {
+                    this.labelSituacaoPessoaRet.Text = "Ativo";
                     this.buttonAlterarSituacao.Text = "Desativar";
                     this.buttonAlterarSituacao.Visible = true;
                     this.buttonDeletarPessoa.Visible = true;
                     this.buttonEditarPessoa.Visible = true;
-                }
-                else if (this.labelSituacaoPessoaRet.Text == "Inativo")
+                } else if(!pessoa.Situacao)
                 {
+                    this.labelSituacaoPessoaRet.Text = "Inativo";
+                    this.buttonAlterarSituacao.Text = "Ativar";
                     this.buttonAlterarSituacao.Visible = true;
                     this.buttonDeletarPessoa.Visible = true;
                     this.buttonEditarPessoa.Visible = true;
-                }
-                else
+                } else
                 {
                     this.buttonAlterarSituacao.Text = "";
                     this.buttonAlterarSituacao.Visible = false;
                     this.buttonDeletarPessoa.Visible = false;
                     this.buttonEditarPessoa.Visible = false;
                 }
+                this.labelNomePessoaPesquisaRetorno.Text = pessoa.Nome;
             }
 
         }
@@ -194,7 +195,7 @@ namespace Teste_Cartsys
                 this.labelCargoPessoaRet.Text = pessoa.Cargo;
                 this.labelNomePessoaPesquisaRetorno.Text = pessoa.Nome;
                 // Now, update the label text based on the Situacao value
-                if (pessoa.Situacao)
+                if (pessoa.Situacao == true)
                 {
                     this.labelSituacaoPessoaRet.Text = "Ativo";  // Set label text to "Ativo" if Situacao is true
                 }
