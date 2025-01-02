@@ -26,8 +26,6 @@ namespace Repositories
                 .Where(x => x.Nome == pessoaPesquisada.Nome)
                 .FirstOrDefault();  // Get the first matching record or null if no match is found
 
-
-
             if (pessoaPesquisada == null)
             {
                 string retorno = "Ok, Pessoa cadastrada com sucesso!";

@@ -146,7 +146,7 @@
             panelCadastro.Controls.Add(textBoxCPF);
             panelCadastro.Controls.Add(textBoxNome);
             panelCadastro.Controls.Add(labelNomeCadastro);
-            panelCadastro.Location = new Point(22, 182);
+            panelCadastro.Location = new Point(21, 182);
             panelCadastro.Name = "panelCadastro";
             panelCadastro.Size = new Size(750, 242);
             panelCadastro.TabIndex = 8;
@@ -298,7 +298,7 @@
             panelDetalhes.Controls.Add(buttonPesquisarDetalhesPessoa);
             panelDetalhes.Controls.Add(textBoxNumRegistroDetalhes);
             panelDetalhes.Controls.Add(labelNumRegistroDetalhes);
-            panelDetalhes.Location = new Point(19, 180);
+            panelDetalhes.Location = new Point(19, 183);
             panelDetalhes.Name = "panelDetalhes";
             panelDetalhes.Size = new Size(752, 244);
             panelDetalhes.TabIndex = 15;
@@ -441,7 +441,7 @@
             panelRegistro.Controls.Add(labelPesquisarNumRegistro);
             panelRegistro.Controls.Add(buttonPesquisarNumRegistro);
             panelRegistro.Controls.Add(label9);
-            panelRegistro.Location = new Point(21, 179);
+            panelRegistro.Location = new Point(18, 185);
             panelRegistro.Name = "panelRegistro";
             panelRegistro.Size = new Size(750, 242);
             panelRegistro.TabIndex = 15;

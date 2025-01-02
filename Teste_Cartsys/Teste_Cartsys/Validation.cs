@@ -11,7 +11,6 @@ namespace Teste_Cartsys
         private const string msgFormatoEmail = "EMAIL EM FORMATO NÃO ACEITO PELO SISTEMA.";
         private const string msgFormatoCPF = "CPF EM FORMATO NÃO ACEITO PELO SISTEMA.  FORMATO DEVE SER APENAS NÚMEROS INTEIROS NESSE PADRÃO - 111.111.111-11";
         
-        
         /// <summary>
         /// Método principal de validação
         /// retorno mensagem de erro na validação
@@ -43,6 +42,7 @@ namespace Teste_Cartsys
 
             return String.Empty;
         }
+
         /// <summary>
         /// Valida se campo de usuário esta preenchido ou maior que 50 caracteres 
         /// true = o campo usuário esta preenchido;
@@ -56,6 +56,7 @@ namespace Teste_Cartsys
                 return false;
             return campo == "" ? false : campo.Length > 50 ? false : true;
         }
+
         /// <summary>
         /// Valida se campo email esta vazio ou maior que 50 caracteres 
         /// False = o campo não passou na validação
@@ -72,6 +73,7 @@ namespace Teste_Cartsys
 
             return campo == "" ? false : campo.Length > 50 ? false : true;
         }
+
         /// <summary>
         /// Valida se campo cpf esta correto 
         /// False = o campo não passou na validação
@@ -102,6 +104,7 @@ namespace Teste_Cartsys
                 return true;
             return false;
         }
+
         /// <summary>
         /// Valida se campo informado é apenas numérico
         /// False = o campo não passou na validação
@@ -121,6 +124,5 @@ namespace Teste_Cartsys
             }
             return false;
         }
-
     }
 }
