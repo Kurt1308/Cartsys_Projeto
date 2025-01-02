@@ -117,8 +117,6 @@ namespace Teste_Cartsys
                     this.buttonDeletarPessoa.Visible = false;
                     this.buttonEditarPessoa.Visible = false;
                 }
-
-                limparDadosRegistro();
             }
 
         }
@@ -145,8 +143,6 @@ namespace Teste_Cartsys
                     this.labelEmailRetDetalhes.Text = pessoa.Email;
                     this.labelEstadoCivilRetDetalhes.Text = pessoa.EstadoCivil;
                     this.labelCPFDetalhesRet.Text = pessoa.CPF;
-
-                    limparDadosDetalhes();
                 }
                 else
                 {
@@ -174,18 +170,28 @@ namespace Teste_Cartsys
         private void limparDadosDetalhes()
         {
             this.textBoxNumRegistroDetalhes.Text = null;
+            this.labelNomeRetDetalhes.Text = null;
+            this.labelIdadeRetDetalhes.Text = null;
+            this.labelEstadoCivilRetDetalhes.Text = null;
+            this.labelEmailRetDetalhes.Text = null;
+            this.labelCPFDetalhesRet.Text = null;
         }
 
         private void limparDadosRegistro()
         {
             this.textBoxPesquisarNomeRegistro.Text = null;
+            this.labelCargoPessoaRet.Text = null;
+            this.labelSituacaoPessoaRet.Text = null;
+            this.labelNomePessoaPesquisaRetorno.Text = null;
         }
 
         // Método para exibir o painel de cadastro
         private void button1_Click(object sender, EventArgs e)
         {
             this.panelDetalhes.Visible = false;
+            this.limparDadosDetalhes();
             this.panelRegistro.Visible = false;
+            this.limparDadosRegistro();
             this.panelCadastro.Visible = true;
         }
 
@@ -193,7 +199,9 @@ namespace Teste_Cartsys
         private void button2_Click(object sender, EventArgs e)
         {
             this.panelCadastro.Visible = false;
+            this.limparDadosCadastro();
             this.panelDetalhes.Visible = false;
+            this.limparDadosDetalhes();
             this.panelRegistro.Visible = true;
         }
 
@@ -201,7 +209,9 @@ namespace Teste_Cartsys
         private void button3_Click(object sender, EventArgs e)
         {
             this.panelRegistro.Visible = false;
+            this.limparDadosRegistro();
             this.panelCadastro.Visible = false;
+            this.limparDadosCadastro();
             this.panelDetalhes.Visible = true;
         }
 
@@ -322,8 +332,6 @@ namespace Teste_Cartsys
                 this.textBoxEditNomePessoa.Visible = false;
                 this.labelNomePessoaPesquisaRetorno.Visible = true;
                 this.labelNomePessoaPesquisaRetorno.Text = pessoa.Nome;
-                
-                
             }
         }
     }

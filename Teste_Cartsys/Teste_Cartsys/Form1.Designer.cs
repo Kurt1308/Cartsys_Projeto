@@ -298,7 +298,7 @@
             panelDetalhes.Controls.Add(buttonPesquisarDetalhesPessoa);
             panelDetalhes.Controls.Add(textBoxNumRegistroDetalhes);
             panelDetalhes.Controls.Add(labelNumRegistroDetalhes);
-            panelDetalhes.Location = new Point(20, 179);
+            panelDetalhes.Location = new Point(19, 180);
             panelDetalhes.Name = "panelDetalhes";
             panelDetalhes.Size = new Size(752, 244);
             panelDetalhes.TabIndex = 15;
@@ -309,9 +309,8 @@
             labelCPFDetalhesRet.AutoSize = true;
             labelCPFDetalhesRet.Location = new Point(128, 167);
             labelCPFDetalhesRet.Name = "labelCPFDetalhesRet";
-            labelCPFDetalhesRet.Size = new Size(129, 15);
+            labelCPFDetalhesRet.Size = new Size(0, 15);
             labelCPFDetalhesRet.TabIndex = 13;
-            labelCPFDetalhesRet.Text = "CPF pessoa pesquisada";
             // 
             // label4
             // 
@@ -328,27 +327,24 @@
             labelEmailRetDetalhes.AutoSize = true;
             labelEmailRetDetalhes.Location = new Point(128, 139);
             labelEmailRetDetalhes.Name = "labelEmailRetDetalhes";
-            labelEmailRetDetalhes.Size = new Size(140, 15);
+            labelEmailRetDetalhes.Size = new Size(0, 15);
             labelEmailRetDetalhes.TabIndex = 11;
-            labelEmailRetDetalhes.Text = "emailpessoa@gmail.com";
             // 
             // labelEstadoCivilRetDetalhes
             // 
             labelEstadoCivilRetDetalhes.AutoSize = true;
             labelEstadoCivilRetDetalhes.Location = new Point(128, 109);
             labelEstadoCivilRetDetalhes.Name = "labelEstadoCivilRetDetalhes";
-            labelEstadoCivilRetDetalhes.Size = new Size(91, 15);
+            labelEstadoCivilRetDetalhes.Size = new Size(0, 15);
             labelEstadoCivilRetDetalhes.TabIndex = 10;
-            labelEstadoCivilRetDetalhes.Text = "Solteiro/Casado";
             // 
             // labelIdadeRetDetalhes
             // 
             labelIdadeRetDetalhes.AutoSize = true;
             labelIdadeRetDetalhes.Location = new Point(128, 80);
             labelIdadeRetDetalhes.Name = "labelIdadeRetDetalhes";
-            labelIdadeRetDetalhes.Size = new Size(91, 15);
+            labelIdadeRetDetalhes.Size = new Size(0, 15);
             labelIdadeRetDetalhes.TabIndex = 9;
-            labelIdadeRetDetalhes.Text = "Idade da pessoa";
             labelIdadeRetDetalhes.Click += label2_Click;
             // 
             // labelNomeRetDetalhes
@@ -356,9 +352,8 @@
             labelNomeRetDetalhes.AutoSize = true;
             labelNomeRetDetalhes.Location = new Point(128, 48);
             labelNomeRetDetalhes.Name = "labelNomeRetDetalhes";
-            labelNomeRetDetalhes.Size = new Size(155, 15);
+            labelNomeRetDetalhes.Size = new Size(0, 15);
             labelNomeRetDetalhes.TabIndex = 8;
-            labelNomeRetDetalhes.Text = "Nome da pessoa cadastrada";
             // 
             // labelEmailDetalhes
             // 
@@ -454,17 +449,17 @@
             // 
             // textBoxEditNomePessoa
             // 
-            textBoxEditNomePessoa.Location = new Point(87, 119);
+            textBoxEditNomePessoa.Location = new Point(82, 119);
             textBoxEditNomePessoa.Name = "textBoxEditNomePessoa";
-            textBoxEditNomePessoa.Size = new Size(197, 23);
+            textBoxEditNomePessoa.Size = new Size(240, 23);
             textBoxEditNomePessoa.TabIndex = 24;
             textBoxEditNomePessoa.Visible = false;
             // 
             // textBoxEditCargoPessoa
             // 
-            textBoxEditCargoPessoa.Location = new Point(85, 40);
+            textBoxEditCargoPessoa.Location = new Point(82, 35);
             textBoxEditCargoPessoa.Name = "textBoxEditCargoPessoa";
-            textBoxEditCargoPessoa.Size = new Size(199, 23);
+            textBoxEditCargoPessoa.Size = new Size(240, 23);
             textBoxEditCargoPessoa.TabIndex = 23;
             textBoxEditCargoPessoa.Visible = false;
             // 
@@ -496,9 +491,8 @@
             labelNomePessoaPesquisaRetorno.Font = new Font("Segoe UI", 11F);
             labelNomePessoaPesquisaRetorno.Location = new Point(87, 122);
             labelNomePessoaPesquisaRetorno.Name = "labelNomePessoaPesquisaRetorno";
-            labelNomePessoaPesquisaRetorno.Size = new Size(203, 20);
+            labelNomePessoaPesquisaRetorno.Size = new Size(0, 20);
             labelNomePessoaPesquisaRetorno.TabIndex = 20;
-            labelNomePessoaPesquisaRetorno.Text = "Nome da pessoa pesquisada.";
             // 
             // labelNomePesquisa
             // 
@@ -526,9 +520,8 @@
             labelSituacaoPessoaRet.Font = new Font("Segoe UI", 11F);
             labelSituacaoPessoaRet.Location = new Point(87, 82);
             labelSituacaoPessoaRet.Name = "labelSituacaoPessoaRet";
-            labelSituacaoPessoaRet.Size = new Size(98, 20);
+            labelSituacaoPessoaRet.Size = new Size(0, 20);
             labelSituacaoPessoaRet.TabIndex = 17;
-            labelSituacaoPessoaRet.Text = "Ativo/Inativo.";
             // 
             // label3
             // 
@@ -546,9 +539,8 @@
             labelCargoPessoaRet.Font = new Font("Segoe UI", 11F);
             labelCargoPessoaRet.Location = new Point(82, 39);
             labelCargoPessoaRet.Name = "labelCargoPessoaRet";
-            labelCargoPessoaRet.Size = new Size(202, 20);
+            labelCargoPessoaRet.Size = new Size(0, 20);
             labelCargoPessoaRet.TabIndex = 15;
-            labelCargoPessoaRet.Text = "Cargo da pessoa pesquisada.";
             // 
             // textBoxPesquisarNomeRegistro
             // 
