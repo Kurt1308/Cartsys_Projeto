@@ -83,12 +83,17 @@ namespace Repositories
 
         public Pessoa PesquisarPessoa(string nomePessoa)
         {
-            Pessoa pessoa = new Pessoa();
-            pessoa = _sqlContext.pessoa
-                .Where(x => x.Nome == nomePessoa).FirstOrDefault();
+            // Remove spaces and convert to lowercase for case-insensitive comparison
+            string nomePessoaNormalized = nomePessoa.Replace(" ", "").ToLower();
+
+            // Query the database and perform the comparison with normalized data
+            Pessoa pessoa = _sqlContext.pessoa
+                .Where(x => x.Nome.Replace(" ", "").ToLower() == nomePessoaNormalized)
+                .FirstOrDefault();
 
             return pessoa;
         }
+
 
         public Pessoa AlterarSituacaoPessoa(string nomePessoa)
         {
